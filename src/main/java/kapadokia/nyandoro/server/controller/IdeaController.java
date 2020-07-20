@@ -13,6 +13,11 @@ public class IdeaController {
      @Autowired
      IdeaService ideaService;
 
+    String message = "Thanks for visiting the app!  Our next hackathon is scheduled for the end of Q3.  We hope to see you there, be sure to add your ideas to the app!";
+    @GetMapping("messages")
+    public String getMessage(){
+        return message;
+    }
 
     @GetMapping("/ideas")
     public List<Idea> getIdeas(){
