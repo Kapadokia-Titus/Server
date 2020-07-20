@@ -1,19 +1,22 @@
 package kapadokia.nyandoro.server.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.beans.factory.annotation.Value;
+
+import javax.persistence.*;
 
 @Entity
+@Table
 public class Idea {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private long id;
-
+    @Column(name = "name")
     private String name;
+    @Column(name = "description")
     private String description;
+    @Column(name = "owner")
     private String owner;
 
     public Idea(){}
@@ -54,5 +57,15 @@ public class Idea {
 
     public void setOwner(String owner) {
         this.owner = owner;
+    }
+
+    @Override
+    public String toString() {
+        return "Idea{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", owner='" + owner + '\'' +
+                '}';
     }
 }
